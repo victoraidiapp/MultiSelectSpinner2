@@ -9,7 +9,7 @@ android {
         minSdkVersion 19
         targetSdkVersion 33
         versionCode 2
-        versionName '1.1'
+        versionName '1.0.4'
     }
 
     buildTypes {
@@ -34,10 +34,12 @@ dependencies {
 publishing {
     publications {
         release(MavenPublication) {
-            from components.release
-            groupId = 'com.github.TU_USUARIO' // <-- reemplaza con tu nombre de usuario de GitHub
-            artifactId = 'MultiSelectSpinner'
-            version = '1.1'
+            afterEvaluate {
+                from components.findByName("release") ?: components.findByName("default")
+            }
+            groupId = 'com.github.victoraidiapp' // Reemplaza con tu usuario real
+            artifactId = 'MultiSelectSpinner2'
+            version = '1.0.4'
         }
     }
 }
